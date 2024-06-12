@@ -1,5 +1,5 @@
 import sqlite3
-from database import get_connection
+from .database import get_connection
 
 class Task:
     def __init__(self, id, user_id, category_id, title, description, due_date, status):
