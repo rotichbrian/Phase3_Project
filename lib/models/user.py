@@ -1,6 +1,6 @@
 # user.py
 from .task import Task
-from .database import get_connection
+from .setup_db import get_connection
 
 class User:
     def __init__(self, id, name, email):

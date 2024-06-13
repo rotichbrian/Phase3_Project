@@ -1,5 +1,5 @@
 # category.py
-from .database import get_connection
+from .setup_db import get_connection
 from .task import Task  # Import the Task class
 
 class Category:

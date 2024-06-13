@@ -19,7 +19,7 @@ def create_tables():
     # Create categories table
     cursor.execute('''
     CREATE TABLE IF NOT EXISTS categories (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        id INTEGER PRIMARY KEY,
         name TEXT NOT NULL,
         description TEXT
     )
@@ -28,7 +28,7 @@ def create_tables():
     # Create tasks table
     cursor.execute('''
     CREATE TABLE IF NOT EXISTS tasks (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        id INTEGER PRIMARY KEY,
         user_id INTEGER,
         category_id INTEGER,
         title TEXT NOT NULL,
