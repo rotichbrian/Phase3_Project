@@ -1,4 +1,4 @@
-import sqlite3
+# import sqlite3
 from .setup_db import get_connection
 
 class Task:
@@ -14,10 +14,18 @@ class Task:
     def save(self):
         conn = get_connection()
         cursor = conn.cursor()
-        cursor.execute('''
-            INSERT INTO tasks (user_id, category_id, title, description, due_date, status)
-            VALUES (?, ?, ?, ?, ?, ?)
-        ''', (self.user_id, self.category_id, self.title, self.description, self.due_date, self.status))
+        if self.id is None:
+            cursor.execute('''
+                INSERT INTO tasks (user_id, category_id, title, description, due_date, status)
+                VALUES (?, ?, ?, ?, ?, ?)
+            ''', (self.user_id, self.category_id, self.title, self.description, self.due_date, self.status))
+            self.id = cursor.lastrowid
+        else:
+            cursor.execute('''
+                UPDATE tasks
+                SET user_id = ?, category_id = ?, title = ?, description = ?, due_date = ?, status = ?
+                WHERE id = ?
+            ''', (self.user_id, self.category_id, self.title, self.description, self.due_date, self.status, self.id))
         conn.commit()
         conn.close()
 
@@ -37,7 +45,9 @@ class Task:
         cursor.execute('SELECT * FROM tasks WHERE id = ?', (task_id,))
         task = cursor.fetchone()
         conn.close()
-        return task
+        if task:
+            return cls(*task)
+        return None
 
     @classmethod
     def delete(cls, task_id):

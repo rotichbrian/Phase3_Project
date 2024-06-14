@@ -1,6 +1,7 @@
 import sqlite3
 
 def get_connection():
+    # Establish and return a connection to the 'task_management.db' SQLite database
     return sqlite3.connect('task_management.db')
 
 def create_tables():
@@ -44,4 +45,5 @@ def create_tables():
     conn.close()
 
 if __name__ == '__main__':
+    # Create the tables when the script is run directly
     create_tables()

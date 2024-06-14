@@ -40,10 +40,23 @@ The Task Management System has the following functionalities:
 
 - Create a new user: Allows creation of a new user by providing a name and a valid email address.
 - Display all users: Lists all the users in the system with their ID, name, and email address.
-Find a user by ID: Retrieves and displays user information based on the provided user ID.
+Find a user by name: Retrieves and displays user information based on the provided user name.
 -Delete User: Enables the deletion of a user by specifying the user ID.
 
 2. Category Mangement:
+
+-Create Category: Allows the creation of a new category by providing a name and a description.
+-Display all categories: Lists all the categories in the system with their ID, name, and description.
+Find a category by ID: Retrieves and displays category information based on the provided category ID.
+-Delete Category: Enables the deletion of a category by specifying the category ID.
+
+3. Task Management:
+
+-Create Task: Allows the creation of a new task by specifying the user ID, category ID, title, description, due date, and status and also it ensures the task is associated with an existing user and category.
+-Display all tasks: Lists all the tasks in the system with their ID, user ID, category ID, title, description, due date, and status.
+Find a task by ID: Retrieves and displays task information based on the provided task ID.
+-Update Task: Enables the update of a task by specifying the task ID and the new information.
+-Delete Task: Enables the deletion of a task by specifying the task ID.
 
 ### Support and Contact Details
 
